@@ -10,10 +10,18 @@ import UIKit
 
 class STDDetailInfoController: UINavigationController {
 
+    @IBOutlet var appearDateAfterLabel: UILabel!
+    
+    @IBOutlet var symptoms: UITextView!
+    @IBOutlet var treatment: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor();
+        
+        
+        self.navigationItem.title = currentSTDInfo
     }
 
 }

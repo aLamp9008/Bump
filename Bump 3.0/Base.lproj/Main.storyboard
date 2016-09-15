@@ -1050,16 +1050,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a lot of facts and stuff about STDs Here (just filling the space with fluf right now)." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WLS-VJ-an9">
-                                <rect key="frame" x="16" y="62" width="288" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="gQL-g3-cC6"/>
-                                </constraints>
-                                <color key="textColor" red="0.14117647058823529" green="0.61960784313725492" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XOC-1E-U3F">
                                 <rect key="frame" x="0.0" y="254" width="320" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1083,6 +1073,16 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a lot of facts and stuff about STDs Here (just filling the space with fluf right now)." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WLS-VJ-an9">
+                                <rect key="frame" x="16" y="62" width="288" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="gQL-g3-cC6"/>
+                                </constraints>
+                                <color key="textColor" red="0.14117647058823529" green="0.61960784313725492" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1113,6 +1113,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="tableVeiw" destination="XOC-1E-U3F" id="9yA-nD-bvR"/>
                         <segue destination="5Mb-ag-vPF" kind="show" id="qrb-Jp-Ouk"/>
                     </connections>
                 </viewController>
@@ -1120,10 +1121,10 @@
             </objects>
             <point key="canvasLocation" x="883" y="1025"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Info Controller-->
         <scene sceneID="vjN-31-f9m">
             <objects>
-                <viewController id="5Mb-ag-vPF" sceneMemberID="viewController">
+                <viewController id="5Mb-ag-vPF" customClass="STDDetailInfoController" customModule="Bump_3_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Mh-xL-AOU"/>
                         <viewControllerLayoutGuide type="bottom" id="WYu-zk-Tqc"/>
@@ -1135,30 +1136,79 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appears 3-5 days after infection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5n-T6-Slp">
                                 <rect key="frame" x="16" y="20" width="288" height="24"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.14117647059999999" green="0.61960784310000006" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Syptoms" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tp-nl-RO5">
                                 <rect key="frame" x="16" y="52" width="288" height="24"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.14117647058823529" green="0.61960784313725492" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Treatment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOT-A5-GBt">
+                                <rect key="frame" x="16" y="269" width="288" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.14117647059999999" green="0.61960784310000006" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ueZ-4x-naf">
+                                <rect key="frame" x="16" y="301" width="288" height="170"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="xGT-cB-qxg"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-iQ-gW3">
+                                <rect key="frame" x="16" y="84" width="288" height="170"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="YqV-wx-5WY"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="e5n-T6-Slp" firstAttribute="top" secondItem="9Mh-xL-AOU" secondAttribute="bottom" constant="20" id="3tu-9o-MhO"/>
                             <constraint firstItem="4Tp-nl-RO5" firstAttribute="top" secondItem="e5n-T6-Slp" secondAttribute="bottom" constant="8" id="7t9-fL-6Yu"/>
                             <constraint firstItem="e5n-T6-Slp" firstAttribute="leading" secondItem="k8g-y8-OmB" secondAttribute="leadingMargin" id="IIQ-o5-XZc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lOT-A5-GBt" secondAttribute="trailing" id="Jv9-D3-bhj"/>
                             <constraint firstItem="e5n-T6-Slp" firstAttribute="trailing" secondItem="k8g-y8-OmB" secondAttribute="trailingMargin" id="TuW-rc-K7X"/>
+                            <constraint firstItem="lOT-A5-GBt" firstAttribute="top" secondItem="2BY-iQ-gW3" secondAttribute="bottom" constant="18" id="X2v-Mc-yPS"/>
+                            <constraint firstItem="lOT-A5-GBt" firstAttribute="leading" secondItem="k8g-y8-OmB" secondAttribute="leadingMargin" id="Yvk-vq-yQa"/>
+                            <constraint firstItem="2BY-iQ-gW3" firstAttribute="centerX" secondItem="k8g-y8-OmB" secondAttribute="centerX" id="aYy-cS-XfJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lOT-A5-GBt" secondAttribute="trailing" id="ajj-tV-7oe"/>
                             <constraint firstItem="4Tp-nl-RO5" firstAttribute="trailing" secondItem="k8g-y8-OmB" secondAttribute="trailingMargin" id="cmQ-K4-yvu"/>
                             <constraint firstItem="4Tp-nl-RO5" firstAttribute="leading" secondItem="k8g-y8-OmB" secondAttribute="leadingMargin" id="iSO-wg-JbM"/>
+                            <constraint firstItem="2BY-iQ-gW3" firstAttribute="leading" secondItem="k8g-y8-OmB" secondAttribute="leadingMargin" id="jUs-lm-w82"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ueZ-4x-naf" secondAttribute="trailing" id="kkn-zT-VlM"/>
+                            <constraint firstItem="lOT-A5-GBt" firstAttribute="leading" secondItem="k8g-y8-OmB" secondAttribute="leadingMargin" id="nUF-dF-Puy"/>
+                            <constraint firstItem="ueZ-4x-naf" firstAttribute="top" secondItem="lOT-A5-GBt" secondAttribute="bottom" constant="8" id="qGm-2a-egp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2BY-iQ-gW3" secondAttribute="trailing" id="suS-Il-yK9"/>
+                            <constraint firstItem="lOT-A5-GBt" firstAttribute="top" secondItem="2BY-iQ-gW3" secondAttribute="bottom" constant="15" id="vNX-cp-ZDa"/>
+                            <constraint firstItem="2BY-iQ-gW3" firstAttribute="top" secondItem="4Tp-nl-RO5" secondAttribute="bottom" constant="8" id="zZ0-Fa-0A5"/>
+                            <constraint firstItem="ueZ-4x-naf" firstAttribute="leading" secondItem="k8g-y8-OmB" secondAttribute="leadingMargin" id="zhD-6J-l4d"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="X2v-Mc-yPS"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="appearDateAfterLabel" destination="e5n-T6-Slp" id="Bt6-nS-9yI"/>
+                        <outlet property="symptoms" destination="2BY-iQ-gW3" id="R5b-2P-yH5"/>
+                        <outlet property="treatment" destination="ueZ-4x-naf" id="8aC-ZZ-g6N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ziF-RW-GSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1299" y="1025"/>
+            <point key="canvasLocation" x="1302" y="1025"/>
         </scene>
         <!--Bump Add Partner Controller-->
         <scene sceneID="oSo-te-asm">

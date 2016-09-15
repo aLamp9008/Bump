@@ -8,8 +8,12 @@
 
 import UIKit
 
+var currentSTDInfo : String = ""
+
 class BumpSTDInfoController: UIViewController {
 
+    @IBOutlet var tableVeiw: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +22,6 @@ class BumpSTDInfoController: UIViewController {
         self.navigationController!.navigationBar.topItem!.title = "Bump"
         
         self.navigationItem.title = "STD Info"
-        
     }
 
 
