@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		569810FDFFA83EAD4097AB27 /* Pods_Bump_3_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E26433E26B9A45D326793DB /* Pods_Bump_3_0.framework */; };
+		BF5DC63B1D731DA800B8631C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC63A1D731DA800B8631C /* AppDelegate.swift */; };
+		BF5DC63D1D731DA800B8631C /* BumpSignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC63C1D731DA800B8631C /* BumpSignUpController.swift */; };
+		BF5DC6401D731DA800B8631C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF5DC63E1D731DA800B8631C /* Main.storyboard */; };
+		BF5DC6421D731DA800B8631C /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF5DC6411D731DA800B8631C /* assets.xcassets */; };
+		BF5DC6451D731DA800B8631C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF5DC6431D731DA800B8631C /* LaunchScreen.storyboard */; };
+		BF5DC6501D731DA800B8631C /* Bump_3_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC64F1D731DA800B8631C /* Bump_3_0Tests.swift */; };
+		BF5DC65B1D731DA800B8631C /* Bump_3_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC65A1D731DA800B8631C /* Bump_3_0UITests.swift */; };
+		BF5DC6691D73212800B8631C /* BumpSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC6681D73212800B8631C /* BumpSignInController.swift */; };
+		BF5DC66B1D73214300B8631C /* BumpForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC66A1D73214200B8631C /* BumpForgotPasswordController.swift */; };
+		BF5DC66D1D73215A00B8631C /* BumpHomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC66C1D73215A00B8631C /* BumpHomePageController.swift */; };
+		BF5DC66F1D73216900B8631C /* BumpAddPartnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC66E1D73216900B8631C /* BumpAddPartnerController.swift */; };
+		BF5DC6711D73217A00B8631C /* BumpSTDInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC6701D73217A00B8631C /* BumpSTDInfoController.swift */; };
+		BF5DC6731D73218A00B8631C /* PersonalInfoControllerBump.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC6721D73218A00B8631C /* PersonalInfoControllerBump.swift */; };
+		BF5DC6751D7321A600B8631C /* InfectedController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC6741D7321A600B8631C /* InfectedController3.swift */; };
+		BF5DC6771D7321C500B8631C /* ScanQRController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC6761D7321C500B8631C /* ScanQRController3.swift */; };
+		BF85B9DB1D88C44E005B6C04 /* STDDetailInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85B9DA1D88C44E005B6C04 /* STDDetailInfoController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF5DC64C1D731DA800B8631C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF5DC62F1D731DA800B8631C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF5DC6361D731DA800B8631C;
+			remoteInfo = "Bump 3.0";
+		};
+		BF5DC6571D731DA800B8631C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF5DC62F1D731DA800B8631C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF5DC6361D731DA800B8631C;
+			remoteInfo = "Bump 3.0";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5E26433E26B9A45D326793DB /* Pods_Bump_3_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bump_3_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		894D7608630BE05476AF34B2 /* Pods-Bump 3.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bump 3.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bump 3.0/Pods-Bump 3.0.debug.xcconfig"; sourceTree = "<group>"; };
+		BF5DC6371D731DA800B8631C /* Bump 3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bump 3.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF5DC63A1D731DA800B8631C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF5DC63C1D731DA800B8631C /* BumpSignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BumpSignUpController.swift; sourceTree = "<group>"; };
+		BF5DC63F1D731DA800B8631C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF5DC6411D731DA800B8631C /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
+		BF5DC6441D731DA800B8631C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF5DC6461D731DA800B8631C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF5DC64B1D731DA800B8631C /* Bump 3.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bump 3.0Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF5DC64F1D731DA800B8631C /* Bump_3_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bump_3_0Tests.swift; sourceTree = "<group>"; };
+		BF5DC6511D731DA800B8631C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF5DC6561D731DA800B8631C /* Bump 3.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bump 3.0UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF5DC65A1D731DA800B8631C /* Bump_3_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bump_3_0UITests.swift; sourceTree = "<group>"; };
+		BF5DC65C1D731DA800B8631C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF5DC6681D73212800B8631C /* BumpSignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpSignInController.swift; sourceTree = "<group>"; };
+		BF5DC66A1D73214200B8631C /* BumpForgotPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpForgotPasswordController.swift; sourceTree = "<group>"; };
+		BF5DC66C1D73215A00B8631C /* BumpHomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpHomePageController.swift; sourceTree = "<group>"; };
+		BF5DC66E1D73216900B8631C /* BumpAddPartnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpAddPartnerController.swift; sourceTree = "<group>"; };
+		BF5DC6701D73217A00B8631C /* BumpSTDInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpSTDInfoController.swift; sourceTree = "<group>"; };
+		BF5DC6721D73218A00B8631C /* PersonalInfoControllerBump.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoControllerBump.swift; sourceTree = "<group>"; };
+		BF5DC6741D7321A600B8631C /* InfectedController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfectedController3.swift; sourceTree = "<group>"; };
+		BF5DC6761D7321C500B8631C /* ScanQRController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRController3.swift; sourceTree = "<group>"; };
+		BF85B9DA1D88C44E005B6C04 /* STDDetailInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDDetailInfoController.swift; sourceTree = "<group>"; };
+		F230A65123E7DE5DDF1CD806 /* Pods-Bump 3.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bump 3.0.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bump 3.0/Pods-Bump 3.0.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF5DC6341D731DA800B8631C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				569810FDFFA83EAD4097AB27 /* Pods_Bump_3_0.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5DC6481D731DA800B8631C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5DC6531D731DA800B8631C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B9CE889C3568714CC168BD01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E26433E26B9A45D326793DB /* Pods_Bump_3_0.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF5DC62E1D731DA800B8631C = {
+			isa = PBXGroup;
+			children = (
+				BF5DC6391D731DA800B8631C /* Bump 3.0 */,
+				BF5DC64E1D731DA800B8631C /* Bump 3.0Tests */,
+				BF5DC6591D731DA800B8631C /* Bump 3.0UITests */,
+				BF5DC6381D731DA800B8631C /* Products */,
+				C5F08B8F9DAB21B5FBCCD92B /* Pods */,
+				B9CE889C3568714CC168BD01 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BF5DC6381D731DA800B8631C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF5DC6371D731DA800B8631C /* Bump 3.0.app */,
+				BF5DC64B1D731DA800B8631C /* Bump 3.0Tests.xctest */,
+				BF5DC6561D731DA800B8631C /* Bump 3.0UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF5DC6391D731DA800B8631C /* Bump 3.0 */ = {
+			isa = PBXGroup;
+			children = (
+				BF5DC63A1D731DA800B8631C /* AppDelegate.swift */,
+				BF5DC63C1D731DA800B8631C /* BumpSignUpController.swift */,
+				BF5DC6681D73212800B8631C /* BumpSignInController.swift */,
+				BF5DC66A1D73214200B8631C /* BumpForgotPasswordController.swift */,
+				BF5DC66C1D73215A00B8631C /* BumpHomePageController.swift */,
+				BF5DC66E1D73216900B8631C /* BumpAddPartnerController.swift */,
+				BF5DC6701D73217A00B8631C /* BumpSTDInfoController.swift */,
+				BF5DC6721D73218A00B8631C /* PersonalInfoControllerBump.swift */,
+				BF5DC6741D7321A600B8631C /* InfectedController3.swift */,
+				BF5DC6761D7321C500B8631C /* ScanQRController3.swift */,
+				BF85B9DA1D88C44E005B6C04 /* STDDetailInfoController.swift */,
+				BF5DC63E1D731DA800B8631C /* Main.storyboard */,
+				BF5DC6411D731DA800B8631C /* assets.xcassets */,
+				BF5DC6431D731DA800B8631C /* LaunchScreen.storyboard */,
+				BF5DC6461D731DA800B8631C /* Info.plist */,
+			);
+			path = "Bump 3.0";
+			sourceTree = "<group>";
+		};
+		BF5DC64E1D731DA800B8631C /* Bump 3.0Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BF5DC64F1D731DA800B8631C /* Bump_3_0Tests.swift */,
+				BF5DC6511D731DA800B8631C /* Info.plist */,
+			);
+			path = "Bump 3.0Tests";
+			sourceTree = "<group>";
+		};
+		BF5DC6591D731DA800B8631C /* Bump 3.0UITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF5DC65A1D731DA800B8631C /* Bump_3_0UITests.swift */,
+				BF5DC65C1D731DA800B8631C /* Info.plist */,
+			);
+			path = "Bump 3.0UITests";
+			sourceTree = "<group>";
+		};
+		C5F08B8F9DAB21B5FBCCD92B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				894D7608630BE05476AF34B2 /* Pods-Bump 3.0.debug.xcconfig */,
+				F230A65123E7DE5DDF1CD806 /* Pods-Bump 3.0.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF5DC6361D731DA800B8631C /* Bump 3.0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF5DC65F1D731DA800B8631C /* Build configuration list for PBXNativeTarget "Bump 3.0" */;
+			buildPhases = (
+				A55A1C3A252E5266525EB2E8 /* [CP] Check Pods Manifest.lock */,
+				BF5DC6331D731DA800B8631C /* Sources */,
+				BF5DC6341D731DA800B8631C /* Frameworks */,
+				BF5DC6351D731DA800B8631C /* Resources */,
+				A148A1C828A1238DF85C332C /* [CP] Embed Pods Frameworks */,
+				C68302F4D513DFA83E0BB1A1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bump 3.0";
+			productName = "Bump 3.0";
+			productReference = BF5DC6371D731DA800B8631C /* Bump 3.0.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF5DC64A1D731DA800B8631C /* Bump 3.0Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF5DC6621D731DA800B8631C /* Build configuration list for PBXNativeTarget "Bump 3.0Tests" */;
+			buildPhases = (
+				BF5DC6471D731DA800B8631C /* Sources */,
+				BF5DC6481D731DA800B8631C /* Frameworks */,
+				BF5DC6491D731DA800B8631C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF5DC64D1D731DA800B8631C /* PBXTargetDependency */,
+			);
+			name = "Bump 3.0Tests";
+			productName = "Bump 3.0Tests";
+			productReference = BF5DC64B1D731DA800B8631C /* Bump 3.0Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF5DC6551D731DA800B8631C /* Bump 3.0UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF5DC6651D731DA800B8631C /* Build configuration list for PBXNativeTarget "Bump 3.0UITests" */;
+			buildPhases = (
+				BF5DC6521D731DA800B8631C /* Sources */,
+				BF5DC6531D731DA800B8631C /* Frameworks */,
+				BF5DC6541D731DA800B8631C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF5DC6581D731DA800B8631C /* PBXTargetDependency */,
+			);
+			name = "Bump 3.0UITests";
+			productName = "Bump 3.0UITests";
+			productReference = BF5DC6561D731DA800B8631C /* Bump 3.0UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF5DC62F1D731DA800B8631C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "alden lamp";
+				TargetAttributes = {
+					BF5DC6361D731DA800B8631C = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BF5DC64A1D731DA800B8631C = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = BF5DC6361D731DA800B8631C;
+					};
+					BF5DC6551D731DA800B8631C = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = BF5DC6361D731DA800B8631C;
+					};
+				};
+			};
+			buildConfigurationList = BF5DC6321D731DA800B8631C /* Build configuration list for PBXProject "Bump 3.0" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF5DC62E1D731DA800B8631C;
+			productRefGroup = BF5DC6381D731DA800B8631C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF5DC6361D731DA800B8631C /* Bump 3.0 */,
+				BF5DC64A1D731DA800B8631C /* Bump 3.0Tests */,
+				BF5DC6551D731DA800B8631C /* Bump 3.0UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF5DC6351D731DA800B8631C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5DC6451D731DA800B8631C /* LaunchScreen.storyboard in Resources */,
+				BF5DC6421D731DA800B8631C /* assets.xcassets in Resources */,
+				BF5DC6401D731DA800B8631C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5DC6491D731DA800B8631C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5DC6541D731DA800B8631C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A148A1C828A1238DF85C332C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bump 3.0/Pods-Bump 3.0-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A55A1C3A252E5266525EB2E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C68302F4D513DFA83E0BB1A1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bump 3.0/Pods-Bump 3.0-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF5DC6331D731DA800B8631C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5DC6691D73212800B8631C /* BumpSignInController.swift in Sources */,
+				BF5DC66D1D73215A00B8631C /* BumpHomePageController.swift in Sources */,
+				BF5DC66B1D73214300B8631C /* BumpForgotPasswordController.swift in Sources */,
+				BF5DC6771D7321C500B8631C /* ScanQRController3.swift in Sources */,
+				BF5DC6751D7321A600B8631C /* InfectedController3.swift in Sources */,
+				BF5DC6731D73218A00B8631C /* PersonalInfoControllerBump.swift in Sources */,
+				BF5DC6711D73217A00B8631C /* BumpSTDInfoController.swift in Sources */,
+				BF5DC63D1D731DA800B8631C /* BumpSignUpController.swift in Sources */,
+				BF5DC66F1D73216900B8631C /* BumpAddPartnerController.swift in Sources */,
+				BF85B9DB1D88C44E005B6C04 /* STDDetailInfoController.swift in Sources */,
+				BF5DC63B1D731DA800B8631C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5DC6471D731DA800B8631C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5DC6501D731DA800B8631C /* Bump_3_0Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5DC6521D731DA800B8631C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5DC65B1D731DA800B8631C /* Bump_3_0UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF5DC64D1D731DA800B8631C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF5DC6361D731DA800B8631C /* Bump 3.0 */;
+			targetProxy = BF5DC64C1D731DA800B8631C /* PBXContainerItemProxy */;
+		};
+		BF5DC6581D731DA800B8631C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF5DC6361D731DA800B8631C /* Bump 3.0 */;
+			targetProxy = BF5DC6571D731DA800B8631C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF5DC63E1D731DA800B8631C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF5DC63F1D731DA800B8631C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF5DC6431D731DA800B8631C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF5DC6441D731DA800B8631C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF5DC65D1D731DA800B8631C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF5DC65E1D731DA800B8631C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF5DC6601D731DA800B8631C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 894D7608630BE05476AF34B2 /* Pods-Bump 3.0.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Bump 3.0/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isotonic.Bump-3-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BF5DC6611D731DA800B8631C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F230A65123E7DE5DDF1CD806 /* Pods-Bump 3.0.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Bump 3.0/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isotonic.Bump-3-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BF5DC6631D731DA800B8631C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Bump 3.0Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isotonic.Bump-3-0Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bump 3.0.app/Bump 3.0";
+			};
+			name = Debug;
+		};
+		BF5DC6641D731DA800B8631C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Bump 3.0Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isotonic.Bump-3-0Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bump 3.0.app/Bump 3.0";
+			};
+			name = Release;
+		};
+		BF5DC6661D731DA800B8631C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Bump 3.0UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isotonic.Bump-3-0UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Bump 3.0";
+			};
+			name = Debug;
+		};
+		BF5DC6671D731DA800B8631C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Bump 3.0UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isotonic.Bump-3-0UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Bump 3.0";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF5DC6321D731DA800B8631C /* Build configuration list for PBXProject "Bump 3.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF5DC65D1D731DA800B8631C /* Debug */,
+				BF5DC65E1D731DA800B8631C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF5DC65F1D731DA800B8631C /* Build configuration list for PBXNativeTarget "Bump 3.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF5DC6601D731DA800B8631C /* Debug */,
+				BF5DC6611D731DA800B8631C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF5DC6621D731DA800B8631C /* Build configuration list for PBXNativeTarget "Bump 3.0Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF5DC6631D731DA800B8631C /* Debug */,
+				BF5DC6641D731DA800B8631C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF5DC6651D731DA800B8631C /* Build configuration list for PBXNativeTarget "Bump 3.0UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF5DC6661D731DA800B8631C /* Debug */,
+				BF5DC6671D731DA800B8631C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF5DC62F1D731DA800B8631C /* Project object */;
+}
