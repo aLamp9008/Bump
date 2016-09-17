@@ -23,7 +23,7 @@
 		BF5DC6731D73218A00B8631C /* PersonalInfoControllerBump.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC6721D73218A00B8631C /* PersonalInfoControllerBump.swift */; };
 		BF5DC6751D7321A600B8631C /* InfectedController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC6741D7321A600B8631C /* InfectedController3.swift */; };
 		BF5DC6771D7321C500B8631C /* ScanQRController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC6761D7321C500B8631C /* ScanQRController3.swift */; };
-		BF85B9DB1D88C44E005B6C04 /* STDDetailInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85B9DA1D88C44E005B6C04 /* STDDetailInfoController.swift */; };
+		BFB1A7601D8CB95500E11DD3 /* STDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB1A75F1D8CB95500E11DD3 /* STDController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,7 @@
 		BF5DC6721D73218A00B8631C /* PersonalInfoControllerBump.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoControllerBump.swift; sourceTree = "<group>"; };
 		BF5DC6741D7321A600B8631C /* InfectedController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfectedController3.swift; sourceTree = "<group>"; };
 		BF5DC6761D7321C500B8631C /* ScanQRController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRController3.swift; sourceTree = "<group>"; };
-		BF85B9DA1D88C44E005B6C04 /* STDDetailInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDDetailInfoController.swift; sourceTree = "<group>"; };
+		BFB1A75F1D8CB95500E11DD3 /* STDController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDController.swift; sourceTree = "<group>"; };
 		F230A65123E7DE5DDF1CD806 /* Pods-Bump 3.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bump 3.0.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bump 3.0/Pods-Bump 3.0.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,11 +136,11 @@
 				BF5DC66A1D73214200B8631C /* BumpForgotPasswordController.swift */,
 				BF5DC66C1D73215A00B8631C /* BumpHomePageController.swift */,
 				BF5DC66E1D73216900B8631C /* BumpAddPartnerController.swift */,
-				BF5DC6701D73217A00B8631C /* BumpSTDInfoController.swift */,
 				BF5DC6721D73218A00B8631C /* PersonalInfoControllerBump.swift */,
 				BF5DC6741D7321A600B8631C /* InfectedController3.swift */,
 				BF5DC6761D7321C500B8631C /* ScanQRController3.swift */,
-				BF85B9DA1D88C44E005B6C04 /* STDDetailInfoController.swift */,
+				BF5DC6701D73217A00B8631C /* BumpSTDInfoController.swift */,
+				BFB1A75F1D8CB95500E11DD3 /* STDController.swift */,
 				BF5DC63E1D731DA800B8631C /* Main.storyboard */,
 				BF5DC6411D731DA800B8631C /* assets.xcassets */,
 				BF5DC6431D731DA800B8631C /* LaunchScreen.storyboard */,
@@ -358,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB1A7601D8CB95500E11DD3 /* STDController.swift in Sources */,
 				BF5DC6691D73212800B8631C /* BumpSignInController.swift in Sources */,
 				BF5DC66D1D73215A00B8631C /* BumpHomePageController.swift in Sources */,
 				BF5DC66B1D73214300B8631C /* BumpForgotPasswordController.swift in Sources */,
@@ -367,7 +368,6 @@
 				BF5DC6711D73217A00B8631C /* BumpSTDInfoController.swift in Sources */,
 				BF5DC63D1D731DA800B8631C /* BumpSignUpController.swift in Sources */,
 				BF5DC66F1D73216900B8631C /* BumpAddPartnerController.swift in Sources */,
-				BF85B9DB1D88C44E005B6C04 /* STDDetailInfoController.swift in Sources */,
 				BF5DC63B1D731DA800B8631C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
