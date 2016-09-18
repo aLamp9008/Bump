@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-let urlString = "http://localhost/bump/test.php"
+let urlString = "http://phpdatabase6-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php"
 var currentUser = ""
 var currentPhone = ""
 var currentGender = false
@@ -40,15 +40,25 @@ class BumpSignInController: UIViewController {
     }
     
     func getJson(){
-        
-        Alamofire.request(.GET, urlString).responseJSON { (responce) in
-            print("something")
-            if let JSON = responce.result.value{
-                values = JSON
-                print("success")
-                print(JSON)
-            }
-        }
+    
+//        Alamofire.request(.GET, "http://phpdatabase6-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php")
+//            .validate(contentType: ["test/html"])
+//            .response() { response in
+//                
+//                    print("It worked!")
+//                    print(response.2)
+//                
+//        
+//        }
+//        Alamofire.request(.GET, "http://phpdatabase6-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php").responseJSON { (responce) in
+//            print("something")
+//            print(responce)
+////            if let JSON = responce{
+                values = ["charlieg1234": ["password" : "1234abc", "PhoneNum" : "543-567-1234", "Gender" : true, "Diseases" : ["HIV" : "09/01/2016", "AIDS" : "09/13/2016"], "Partners": ["Sara Jones" : "09/15/2016"]]]
+////                print(JSON)
+////                print("success")
+////            }
+//        }
     }
     
     func dismissKeyboard() {
@@ -82,7 +92,7 @@ class BumpSignInController: UIViewController {
         var able = false
         if username.text != nil && password.text != nil{
             
-            if let personalUser = values["users"]?![username.text!]?!{
+            if let personalUser = values[username.text!]?!{
                 if personalUser["password"] as? String == password.text{
                     able = true
                 }
@@ -90,8 +100,8 @@ class BumpSignInController: UIViewController {
                 if (able){
                     performSegueWithIdentifier("loggedIn", sender: nil)
                     currentUser = username.text!
-                    currentPhone =  values["users"]!![username.text!]!!["phoneNumber"]!! as! String
-                    currentGender = values["users"]!![username.text!]!!["Gender"]!! as! Bool
+                    currentPhone =  values[username.text!]!!["PhoneNum"]!! as! String
+                    currentGender = values[username.text!]!!["Gender"]!! as! Bool
                     
                 } else{
                     
@@ -113,14 +123,5 @@ class BumpSignInController: UIViewController {
         }
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

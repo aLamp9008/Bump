@@ -10,6 +10,15 @@ import UIKit
 
 class STDController: UIViewController {
 
+    @IBOutlet var daysAfter: UILabel!
+    
+    @IBOutlet var symptoms: UITextView!
+    
+    @IBOutlet var treatment: UITextView!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +32,24 @@ class STDController: UIViewController {
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.Bordered, target: self, action: "back")
         self.navigationItem.leftBarButtonItem = newBackButton;
+        
+        var genderSomething : Int {
+            get{
+                if (currentGender){
+                    return 2
+                }else{
+                    return 1
+                }
+            }
+            set{
+                return
+            }
+        }
+        daysAfter.text = STDDict[currentSTDInfo]![0]
+        symptoms.text = STDDict[currentSTDInfo]![genderSomething]
+        treatment.text = STDDict[currentSTDInfo]![3]
+        
+        
         
     }
     

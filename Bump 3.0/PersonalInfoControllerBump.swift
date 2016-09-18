@@ -27,6 +27,12 @@ class BumpPersonalInfoController: UIViewController {
         usernameHere.text = currentUser
         userGender.text = genderSomething(currentGender)
         userPhoneNumber.text = currentPhone
+        switch currentGender {
+        case true:
+            selfImage.image = UIImage(named: "user-1")
+        default:
+            selfImage.image = UIImage(named: "user_female_body")
+        }
         
     }
 

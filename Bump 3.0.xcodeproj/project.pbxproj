@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		569810FDFFA83EAD4097AB27 /* Pods_Bump_3_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E26433E26B9A45D326793DB /* Pods_Bump_3_0.framework */; };
+		BF2B3B6B1D8D6EC100EDB897 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B3B6A1D8D6EC100EDB897 /* TableViewCell.swift */; };
 		BF5DC63B1D731DA800B8631C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC63A1D731DA800B8631C /* AppDelegate.swift */; };
 		BF5DC63D1D731DA800B8631C /* BumpSignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DC63C1D731DA800B8631C /* BumpSignUpController.swift */; };
 		BF5DC6401D731DA800B8631C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF5DC63E1D731DA800B8631C /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		5E26433E26B9A45D326793DB /* Pods_Bump_3_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bump_3_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		894D7608630BE05476AF34B2 /* Pods-Bump 3.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bump 3.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bump 3.0/Pods-Bump 3.0.debug.xcconfig"; sourceTree = "<group>"; };
+		BF2B3B6A1D8D6EC100EDB897 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		BF5DC6371D731DA800B8631C /* Bump 3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bump 3.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5DC63A1D731DA800B8631C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF5DC63C1D731DA800B8631C /* BumpSignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BumpSignUpController.swift; sourceTree = "<group>"; };
@@ -141,8 +143,9 @@
 				BF5DC6761D7321C500B8631C /* ScanQRController3.swift */,
 				BF5DC6701D73217A00B8631C /* BumpSTDInfoController.swift */,
 				BFB1A75F1D8CB95500E11DD3 /* STDController.swift */,
-				BF5DC63E1D731DA800B8631C /* Main.storyboard */,
+				BF2B3B6A1D8D6EC100EDB897 /* TableViewCell.swift */,
 				BF5DC6411D731DA800B8631C /* assets.xcassets */,
+				BF5DC63E1D731DA800B8631C /* Main.storyboard */,
 				BF5DC6431D731DA800B8631C /* LaunchScreen.storyboard */,
 				BF5DC6461D731DA800B8631C /* Info.plist */,
 			);
@@ -367,6 +370,7 @@
 				BF5DC6731D73218A00B8631C /* PersonalInfoControllerBump.swift in Sources */,
 				BF5DC6711D73217A00B8631C /* BumpSTDInfoController.swift in Sources */,
 				BF5DC63D1D731DA800B8631C /* BumpSignUpController.swift in Sources */,
+				BF2B3B6B1D8D6EC100EDB897 /* TableViewCell.swift in Sources */,
 				BF5DC66F1D73216900B8631C /* BumpAddPartnerController.swift in Sources */,
 				BF5DC63B1D731DA800B8631C /* AppDelegate.swift in Sources */,
 			);

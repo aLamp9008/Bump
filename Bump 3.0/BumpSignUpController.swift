@@ -44,6 +44,11 @@ class BumpSignUpController: UIViewController {
         
         
         viewReady()
+        Alamofire.request(.GET, urlString).responseJSON { (responce) in
+            if let JSON = responce.result.value{
+                print(JSON)
+            }
+        }
     }
     
     
@@ -138,13 +143,14 @@ class BumpSignUpController: UIViewController {
             
             if (something){
                 
-                var parameters = [
+                var parameters =
+                    [
                     userNameSignUp.text!:[
                         "password" : passwordSignUp.text!,
-                        "phoneNumber" : phoneNumberSignUp.text!,
-                        "gender" : isMale,
-                        "disease" : ["nil" : "0/0/00"],
-                        "partners" : ["example" : "0/0/00"]
+                        "PhoneNum" : phoneNumberSignUp.text!,
+                        "Gender" : isMale,
+                        "Diseases" : ["nil" : "0/0/00"],
+                        "Partners" : ["example" : "0/0/00"]
                     ]
                 ]
                 
