@@ -163,7 +163,7 @@ class BumpSignUpController: UIViewController {
             
             
         }else{
-            fillOutFollowingLabel.text = "PLease fill out all of the folliowing"
+            fillOutFollowingLabel.text = "Please fill out all of the folliowing"
             fillOutFollowingLabel.hidden = true
         }
         

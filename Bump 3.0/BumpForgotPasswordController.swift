@@ -57,13 +57,13 @@ class BumpForgotPasswordController: UIViewController {
         
         if sender.currentTitle == "Next"{
             
-            if let personalUser = values["users"]?![textFeild.text!]?!{
+            if let personalUser = values[textFeild.text!]?!{
                 
                 let randomNum =  generateRandomNumber(4)
                 NSUserDefaults.standardUserDefaults().setValue(randomNum, forKey: "randomNum")
                 NSUserDefaults.standardUserDefaults().setValue(personalUser, forKey: "personalUser")
                 NSUserDefaults.standardUserDefaults().setValue(textFeild.text, forKey: "username")
-                twilPhone = String(personalUser["phoneNumber"])
+                twilPhone = String(personalUser["phoneNum"])
                 directionsLabel.text = "please type in the varification code"
                 
                 var toNumber = ""
@@ -83,9 +83,11 @@ class BumpForgotPasswordController: UIViewController {
                 let message = "Here's your Bump varification code: \(randomNum)"
                 
                 // Build the request
+                
                 let request = NSMutableURLRequest(URL: NSURL(string:"https://ACa53472c53e3e8a477617ac2bcaf6a07e:825fd297a8fe82a54997fdfa3aed05d1@api.twilio.com/2010-04-01/Accounts/ACa53472c53e3e8a477617ac2bcaf6a07e/SMS/Messages")!)
                 request.HTTPMethod = "POST"
                 request.HTTPBody = "From=%2B16466797557&To=\(toNumber)&Body=\(message)".dataUsingEncoding(NSUTF8StringEncoding)
+                
                 
                 // Build the completion block and send the request
                 NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
@@ -144,18 +146,6 @@ class BumpForgotPasswordController: UIViewController {
         }
         
     }
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
