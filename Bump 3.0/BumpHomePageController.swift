@@ -10,14 +10,17 @@ import UIKit
 
 class BumpHomePageController: UIViewController {
 
+    @IBOutlet var username: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.141, green: 0.620, blue: 0.918, alpha: 1.00)
-        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 28.0)!]
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 28.0)!]
         self.navigationItem.title = "Bump"
-        
+
+        username.text = currentUser
         
     }
 

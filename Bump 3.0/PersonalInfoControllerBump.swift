@@ -38,4 +38,12 @@ class BumpPersonalInfoController: UIViewController {
 
     func genderSomething (bool : Bool) -> String{ if (currentGender){ return "Male"; }else{ return "Female";}}
 
+    @IBAction func logOUt(sender: AnyObject) {
+        currentUser = ""
+        currentPhone = ""
+        currentGender = false
+        currentPassword = ""
+        currentSTDInfo = ""
+        performSegueWithIdentifier("loggedOut", sender: nil)
+    }
 }

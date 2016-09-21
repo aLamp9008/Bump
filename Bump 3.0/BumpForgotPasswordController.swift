@@ -57,7 +57,7 @@ class BumpForgotPasswordController: UIViewController {
         
         if sender.currentTitle == "Next"{
             
-            if let personalUser = values[textFeild.text!]?!{
+            if let personalUser = values[textFeild.text!]{
                 
                 let randomNum =  generateRandomNumber(4)
                 NSUserDefaults.standardUserDefaults().setValue(randomNum, forKey: "randomNum")
@@ -124,18 +124,29 @@ class BumpForgotPasswordController: UIViewController {
             
         }else if sender.currentTitle == "Set Password"{
             
+            
+            
             if textFeild.text != nil{
                 var userNewParameter: [String : AnyObject] = NSUserDefaults.standardUserDefaults().valueForKey("personalUser")! as! [String : AnyObject]
+               
                 userNewParameter["password"] = textFeild.text!
+                
                 var paramers = [NSUserDefaults.standardUserDefaults().valueForKey("username") as! String: userNewParameter]
-                Alamofire.request(.POST, urlString, parameters: userNewParameter, encoding: .JSON)
-                currentUser = NSUserDefaults.standardUserDefaults().valueForKey("username") as! String
-                Alamofire.request(.GET, urlString).responseJSON(completionHandler: { (responce) in
-                    if let JSON = responce.result.value{
-                        currentPhone = JSON[currentUser]!!["phoneNumber"]!! as! String
-                        currentGender = JSON[currentUser]!!["gender"]!! as! Bool
+                
+                let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard.php")!)
+                request.HTTPMethod = "POST"
+                request.HTTPBody = "username=\(String(NSUserDefaults.standardUserDefaults().valueForKey("username")!))/&password=\(paramers["password"])&phone_num=\(paramers["phoneNum"])&gender=\(paramers["gender"])".dataUsingEncoding(NSUTF8StringEncoding)
+                
+                NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+                    print("Finished")
+                    if let data = data, responseDetails = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                        // Success
+                        print("Response: \(responseDetails)")
+                    } else {
+                        // Failure
+                        print("Error: \(error)")
                     }
-                })
+                }).resume()
                 
                 
                 performSegueWithIdentifier("showHome", sender: nil)

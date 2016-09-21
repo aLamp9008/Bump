@@ -12,6 +12,7 @@ import Alamofire
 class BumpScanQRController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     
+    @IBOutlet var webView: UIWebView!
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -118,16 +119,32 @@ class BumpScanQRController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
         
         if found == true{
-            var parameters : [String : AnyObject] = values["users"]!![code]!! as! [String : AnyObject]
-            let dateFormateter = NSDateFormatter()
-            dateFormateter.dateFormat = "dd-MM-yyyy"
-            let string = dateFormateter.stringFromDate(NSDate())
-            var str : [String : String] = parameters["Partners"]! as! [String : String]
-            str[code] = string
-            parameters["Partners"] = str
-            Alamofire.request(.POST, urlString, parameters: parameters, encoding: .JSON)
+            
+
+            
+            let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyy"
+                let stringDate = dateFormatter.stringFromDate(NSDate())
+                
+                let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard3.php")!)
+                request.HTTPMethod = "POST"
+                request.HTTPBody = "username=\(currentUser)&password=\(currentPassword)&partener=\(code)&partner_date=\(stringDate)".dataUsingEncoding(NSUTF8StringEncoding)
+                
+                NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+                    print("Finished")
+                    if let data = data, responseDetails = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                        // Success
+                        print("Response: \(responseDetails)")
+                    } else {
+                        // Failure
+                        print("Error: \(error)")
+                    }
+                }).resume()
+            
+            webView.loadRequest(NSURLRequest(URL: NSURL(string : "http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php")!))
+            
             performSegueWithIdentifier("backHome", sender: nil)
-        }
+            }
         
 
     }

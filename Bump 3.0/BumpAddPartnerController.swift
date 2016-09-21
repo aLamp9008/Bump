@@ -12,6 +12,7 @@ var qrcodeImage: CIImage!
 
 class BumpAddPartnerController: UIViewController {
 
+    @IBOutlet var webView: UIWebView!
     @IBOutlet var usernameText: UILabel!
     @IBOutlet var qrImage: UIImageView!
     @IBOutlet var userNameOfPartner: UITextField!
@@ -53,4 +54,33 @@ class BumpAddPartnerController: UIViewController {
         scanCodeButton.backgroundColor = UIColor(red: 0.141, green: 0.620, blue: 0.918, alpha: 1.00)
     }
 
+    @IBAction func addPartner(sender: AnyObject) {
+        if usernameText.text != nil{
+            if let user = values[usernameText.text!]{
+                
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyy"
+                let stringDate = dateFormatter.stringFromDate(NSDate())
+                
+                let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard3.php")!)
+                request.HTTPMethod = "POST"
+                request.HTTPBody = "username=\(currentUser)&password=\(currentPassword)&partner=\(userNameOfPartner.text!)&partner_date=\(stringDate)".dataUsingEncoding(NSUTF8StringEncoding)
+                
+                NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+                    print("Finished")
+                    if let data = data, responseDetails = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                        // Success
+                        print("Response: \(responseDetails)")
+                    } else {
+                        // Failure
+                        print("Error: \(error)")
+                    }
+                }).resume()
+                
+                webView.loadRequest(NSURLRequest(URL: NSURL(string : "http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php")!))
+            }
+        }
+    }
+    
+    
 }

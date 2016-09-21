@@ -11,6 +11,8 @@ import Alamofire
 
 class BumpSignUpController: UIViewController {
     
+    @IBOutlet var webView: UIWebView!
+    
     @IBOutlet var phoneNumberSignUp: UITextField!
     @IBOutlet var passwordSignUp: UITextField!
     @IBOutlet var userNameSignUp: UITextField!
@@ -34,7 +36,7 @@ class BumpSignUpController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        genderChosen = false
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
@@ -44,11 +46,6 @@ class BumpSignUpController: UIViewController {
         
         
         viewReady()
-        Alamofire.request(.GET, urlString).responseJSON { (responce) in
-            if let JSON = responce.result.value{
-                print(JSON)
-            }
-        }
     }
     
     
@@ -143,19 +140,24 @@ class BumpSignUpController: UIViewController {
             
             if (something){
                 
-                var parameters =
-                    [
-                    userNameSignUp.text!:[
-                        "password" : passwordSignUp.text!,
-                        "PhoneNum" : phoneNumberSignUp.text!,
-                        "Gender" : isMale,
-                        "Diseases" : ["nil" : "0/0/00"],
-                        "Partners" : ["example" : "0/0/00"]
-                    ]
-                ]
+                var stringBool = ""
                 
-                Alamofire.request(.POST, urlString, parameters: parameters, encoding: .JSON)
+                if isMale == true{
+                    stringBool = "true"
+                }else{
+                    stringBool = "false"
+                }
+                
+                
+                request(userNameSignUp.text!, b: passwordSignUp.text!, c: phoneNumberSignUp.text!, d: stringBool)
+                
+                currentUser = userNameSignUp.text!
+                currentPassword = passwordSignUp.text!
+                currentPhone = phoneNumberSignUp.text!
+                currentGender = isMale
+                
                 performSegueWithIdentifier("showHome", sender: nil)
+                
             }else{
                 fillOutFollowingLabel.text = "Username taken"
                 fillOutFollowingLabel.hidden = false
@@ -169,6 +171,31 @@ class BumpSignUpController: UIViewController {
         
     }
     
+    func request(a: String, b:String, c:String, d:String) {
+        
+        print(a)
+        print(b)
+        print(c)
+        print(d)
+        
+        let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard.php")!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = "username=\(a)&password=\(b)&phone_num=\(c)&gender=\(d)".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+            print("Finished")
+            if let data = data, responseDetails = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                // Success
+                print("Response: \(responseDetails)")
+            } else {
+                // Failure
+                print("Error: \(error)")
+            }
+        }).resume()
+        
+        webView.loadRequest(NSURLRequest(URL: NSURL(string : "http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php")!))
+        
+    }
     
     
     

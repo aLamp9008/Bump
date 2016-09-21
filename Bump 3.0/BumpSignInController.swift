@@ -8,13 +8,37 @@
 
 import UIKit
 import Alamofire
-
-let urlString = "http://phpdatabase6-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php"
 var currentUser = ""
 var currentPhone = ""
 var currentGender = false
+var currentPassword = ""
 
-var values: AnyObject = ""
+var values : [String : AnyObject] = [String : AnyObject]()
+
+func convertStringToDictionary(text: String) -> [String:AnyObject]? {
+    if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
+        do {
+            return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String:AnyObject]
+        } catch let error as NSError {
+            print(error)
+        }
+        
+    }
+    return nil
+}
+
+func dataWithHexString(hex: String) -> NSData {
+    var hex = hex
+    let data = NSMutableData()
+    while(hex.characters.count > 0) {
+        let c: String = hex.substringToIndex(hex.startIndex.advancedBy(2))
+        hex = hex.substringFromIndex(hex.startIndex.advancedBy(2))
+        var ch: UInt32 = 0
+        NSScanner(string: c).scanHexInt(&ch)
+        data.appendBytes(&ch, length: 1)
+    }
+    return data
+}
 
 class BumpSignInController: UIViewController {
 
@@ -35,10 +59,27 @@ class BumpSignInController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BumpSignInController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+
         
-        let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase16-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard.php")!)
-        request.HTTPMethod = "POST"
-        request.HTTPBody = "username=\"test2\"&password=\"test\"&phone_num=\"9735555555\"&gender=\"Male\"".dataUsingEncoding(NSUTF8StringEncoding)
+//        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "dd-MM-yyy"
+//        let stringDate = dateFormatter.stringFromDate(NSDate())
+//        
+//        
+//        let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard2.php")!)
+//        request.HTTPMethod = "POST"
+//        request.HTTPBody = "username=test/&password=test&disease=HIV&disease_date=someDate".dataUsingEncoding(NSUTF8StringEncoding)
+//        
+//        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+//            print("Finished")
+//            if let data = data, responseDetails = NSString(data: data, encoding: NSUTF8StringEncoding) {
+//                // Success
+//                print("Response: \(responseDetails)")
+//            } else {
+//                // Failure
+//                print("Error: \(error)")
+//            }
+//        }).resume()
         
         viewReady()
         getJson()
@@ -48,93 +89,24 @@ class BumpSignInController: UIViewController {
     var somethingString = ""
         
         
-        
-        Alamofire.request(.GET, "http://phpdatabase16-bump-php-db.0ec9.hackathon.openshiftapps.com/results.json")
-            .validate(contentType: ["test/html"])
-            .response { (response) in
-                
-                somethingString = String(response.2)
-                
-                somethingString = somethingString.stringByReplacingOccurrencesOfString("Optional(<", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                somethingString = somethingString.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                somethingString = somethingString.stringByReplacingOccurrencesOfString(">)", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                
-                let data = self.dataWithHexString(somethingString) // <68656c6c 6f2c2077 6f726c64>
-                
+        Alamofire.request(.GET, "http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/results.json").responseJSON { (responce) in
+            let json = responce.result.value!
+            
+            
+            
+            
+            var something = String(json)
+            // print(something)
+            something = something.stringByReplacingOccurrencesOfString("}{", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            something = something.stringByReplacingOccurrencesOfString("Male", withString: "\"Male\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            something = something.stringByReplacingOccurrencesOfString("Felmale", withString: "\"Female\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            something = something.stringByReplacingOccurrencesOfString("\"\"", withString: "\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            something = something.stringByReplacingOccurrencesOfString("\"\"", withString: "\"1\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            let json2 = convertStringToDictionary(something)!
+            values = json2
+            print(values)
 
-                
-                
-                if let string = String(data: data, encoding: NSUTF8StringEncoding){
-                    
-                        
-                    
-                    
-                    
-                    var str = string.stringByReplacingOccurrencesOfString("}{", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                    str = str.stringByReplacingOccurrencesOfString("\\\\\\", withString: "\\", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                    
-                    print(str)
-                    if let dictionary = self.parseJSON("{\"charlieg1234\": {\"password\" : \"1234abc\",\"PhoneNum\" :\"543-567-1234\",\"Gender\":true, \"Diseases\":{\"HIV\":\"09/01/2016\", \"AIDS\":\"09/13/2016\"},\"Partners\":{\"Sara Jones\":\"09/15/2016\"}},\"test\": {\"password\" : \"test\",\"PhoneNum\" :\"9735555555\",\"Gender\":true, \"Diseases\":{},\"Partners\":{}}}") {
-                        print("dictionary: \(dictionary)")
-                    }
-                    
-//                    let somethingSmoething : [String: AnyObject] = self.convertStringToDictionary(str)!
-//                    print(somethingSmoething)
-                }
-                
-                
         }
-        
-        
-        
-    
-    }
-    
-
-
-    
-    func parseJSON(jsonString: String) -> [String: AnyObject]? {
-        if let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding) {
-            
-            do{
-            
-            return try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
-            
-            }catch let error as NSError {
-                print(error)
-            }
-        }
-        return nil
-    }
-    
-    func convertStringToDictionary(text: String) -> [String:AnyObject]? {
-        if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
-            
-            do {
-                return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String:AnyObject]
-            } catch let error as NSError {
-                print(error)
-            }
-            
-        }
-        return nil
-    }
-    
-
-    
-    
-    
-    func dataWithHexString(hex: String) -> NSData {
-        var hex = hex
-        let data = NSMutableData()
-        while(hex.characters.count > 0) {
-            let c: String = hex.substringToIndex(hex.startIndex.advancedBy(2))
-            hex = hex.substringFromIndex(hex.startIndex.advancedBy(2))
-            var ch: UInt32 = 0
-            NSScanner(string: c).scanHexInt(&ch)
-            data.appendBytes(&ch, length: 1)
-        }
-        return data
     }
     
     func dismissKeyboard() {
@@ -168,7 +140,7 @@ class BumpSignInController: UIViewController {
         var able = false
         if username.text != nil && password.text != nil{
             
-            if let personalUser = values[username.text!]?!{
+            if let personalUser = values[username.text!]{
                 if personalUser["password"] as? String == password.text{
                     able = true
                 }
@@ -176,8 +148,16 @@ class BumpSignInController: UIViewController {
                 if (able){
                     performSegueWithIdentifier("loggedIn", sender: nil)
                     currentUser = username.text!
-                    currentPhone =  values[username.text!]!!["PhoneNum"]!! as! String
-                    currentGender = values[username.text!]!!["Gender"]!! as! Bool
+                    currentPhone =  values[username.text!]!["PhoneNum"]!! as! String
+                    if values[username.text!]!["Gender"]! as! CFBoolean == "Male" || values[username.text!]!["Gender"]!! as! CFBoolean == "1"{
+                        currentGender =  true
+                    }else{
+                        currentGender = false
+                    }
+                    currentPassword = values[username.text!]!["password"] as! String
+                    print(currentUser)
+                    print(currentPhone)
+                    print(currentGender)
                     
                 } else{
                     
