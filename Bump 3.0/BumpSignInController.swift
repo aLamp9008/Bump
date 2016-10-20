@@ -7,7 +7,9 @@
 //
 
 import UIKit
+
 import Alamofire
+
 var currentUser = ""
 var currentPhone = ""
 var currentGender = false
@@ -59,16 +61,13 @@ class BumpSignInController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BumpSignInController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-
+        self.navigationController?.navigationBarHidden = true
         
-//        let dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = "dd-MM-yyy"
-//        let stringDate = dateFormatter.stringFromDate(NSDate())
-//        
-//        
-//        let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard2.php")!)
+        
+        
+//        let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard.php")!)
 //        request.HTTPMethod = "POST"
-//        request.HTTPBody = "username=test/&password=test&disease=HIV&disease_date=someDate".dataUsingEncoding(NSUTF8StringEncoding)
+//        request.HTTPBody = "username=test&password=test&phone_num=9738738224&gender=true".dataUsingEncoding(NSUTF8StringEncoding)
 //        
 //        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
 //            print("Finished")
@@ -80,6 +79,7 @@ class BumpSignInController: UIViewController {
 //                print("Error: \(error)")
 //            }
 //        }).resume()
+
         
         viewReady()
         getJson()
@@ -90,22 +90,24 @@ class BumpSignInController: UIViewController {
         
         
         Alamofire.request(.GET, "http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/results.json").responseJSON { (responce) in
+            print(responce)
             let json = responce.result.value!
             
             
             
             
             var something = String(json)
-            // print(something)
+             
             something = something.stringByReplacingOccurrencesOfString("}{", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
             something = something.stringByReplacingOccurrencesOfString("Male", withString: "\"Male\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
             something = something.stringByReplacingOccurrencesOfString("Felmale", withString: "\"Female\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
-            something = something.stringByReplacingOccurrencesOfString("\"\"", withString: "\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
-            something = something.stringByReplacingOccurrencesOfString("\"\"", withString: "\"1\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            something = something.stringByReplacingOccurrencesOfString("\"\"", withString: "\",\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            something = something.stringByReplacingOccurrencesOfString("\\\"\\\"", withString: "\\\",\\\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            
             let json2 = convertStringToDictionary(something)!
             values = json2
             print(values)
-
+            
         }
     }
     
@@ -149,7 +151,7 @@ class BumpSignInController: UIViewController {
                     performSegueWithIdentifier("loggedIn", sender: nil)
                     currentUser = username.text!
                     currentPhone =  values[username.text!]!["PhoneNum"]!! as! String
-                    if values[username.text!]!["Gender"]! as! CFBoolean == "Male" || values[username.text!]!["Gender"]!! as! CFBoolean == "1"{
+                    if values[username.text!]!["Gender"]! as! CFBoolean == "Male" || values[username.text!]!["Gender"]!! as! CFBoolean == 1{
                         currentGender =  true
                     }else{
                         currentGender = false
@@ -164,14 +166,14 @@ class BumpSignInController: UIViewController {
                     fillOutFollowing.text = "The password is invalid"
                     fillOutFollowing.hidden = false
                 }
-            } else{
+            }else{
                 
                 fillOutFollowing.text = "The Username is invalid"
                 fillOutFollowing.hidden = false
                 
-            }
+            
         }//make and give and error message on view
-        else{
+        }else{
             
             fillOutFollowing.text = "Please fillout all of the following"
             fillOutFollowing.hidden = false

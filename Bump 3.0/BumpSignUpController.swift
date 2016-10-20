@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class BumpSignUpController: UIViewController {
+class BumpSignUpController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet var webView: UIWebView!
     
@@ -149,14 +149,29 @@ class BumpSignUpController: UIViewController {
                 }
                 
                 
-                request(userNameSignUp.text!, b: passwordSignUp.text!, c: phoneNumberSignUp.text!, d: stringBool)
+                let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard.php")!)
+                request.HTTPMethod = "POST"
+                request.HTTPBody = "username=\(userNameSignUp.text!)&password=\(passwordSignUp.text!)&phone_num=\(phoneNumberSignUp.text!)&gender=\(isMale)".dataUsingEncoding(NSUTF8StringEncoding)
+                
+                NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+                    print("Finished")
+                    if let data = data, responseDetails = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                        // Success
+                        print("Response: \(responseDetails)")
+                    } else {
+                        // Failure
+                        print("Error: \(error)")
+                    }
+                }).resume()
+                
+                webView.loadRequest(NSURLRequest(URL: NSURL(string : "http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php")!))
                 
                 currentUser = userNameSignUp.text!
                 currentPassword = passwordSignUp.text!
                 currentPhone = phoneNumberSignUp.text!
                 currentGender = isMale
                 
-                performSegueWithIdentifier("showHome", sender: nil)
+                
                 
             }else{
                 fillOutFollowingLabel.text = "Username taken"
@@ -171,29 +186,36 @@ class BumpSignUpController: UIViewController {
         
     }
     
-    func request(a: String, b:String, c:String, d:String) {
+    public func webViewDidFinishLoad(webView: UIWebView){
         
-        print(a)
-        print(b)
-        print(c)
-        print(d)
         
-        let request = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard.php")!)
-        request.HTTPMethod = "POST"
-        request.HTTPBody = "username=\(a)&password=\(b)&phone_num=\(c)&gender=\(d)".dataUsingEncoding(NSUTF8StringEncoding)
-        
-        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
-            print("Finished")
-            if let data = data, responseDetails = NSString(data: data, encoding: NSUTF8StringEncoding) {
-                // Success
-                print("Response: \(responseDetails)")
-            } else {
-                // Failure
-                print("Error: \(error)")
+            var somethingString = ""
+            
+            
+            Alamofire.request(.GET, "http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/results.json").responseJSON { (responce) in
+                print(responce)
+                let json = responce.result.value!
+                
+                
+                
+                
+                var something = String(json)
+                
+                something = something.stringByReplacingOccurrencesOfString("}{", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                something = something.stringByReplacingOccurrencesOfString("Male", withString: "\"Male\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                something = something.stringByReplacingOccurrencesOfString("Felmale", withString: "\"Female\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                something = something.stringByReplacingOccurrencesOfString("\"\"", withString: "\",\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                something = something.stringByReplacingOccurrencesOfString("\\\"\\\"", withString: "\\\",\\\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                
+                let json2 = convertStringToDictionary(something)!
+                values = json2
+                print(values)
+                
             }
-        }).resume()
         
-        webView.loadRequest(NSURLRequest(URL: NSURL(string : "http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php")!))
+        
+        
+        performSegueWithIdentifier("showHome", sender: nil)
         
     }
     

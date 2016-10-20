@@ -80,7 +80,7 @@ class BumpInfectedController: UIViewController, UITableViewDelegate, UITableView
                     if let user : NSDictionary = values[currentUser] as? NSDictionary{
                         for (keys, _) in user["Partners"] as! NSDictionary{
                             array.append(keys as! String)
-                            
+                            print(array)
                         }
                         
                     
@@ -95,7 +95,9 @@ class BumpInfectedController: UIViewController, UITableViewDelegate, UITableView
         var phoneNums = [String]()
         
         for a in partners{
+            print(a as! String)
             if let something : String = values[String(a)]?["PhoneNum"] as? String{
+                print(something)
                 phoneNums.append(something)
             }
         }

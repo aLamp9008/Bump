@@ -11,7 +11,7 @@ import UIKit
 var qrcodeImage: CIImage!
 
 class BumpAddPartnerController: UIViewController {
-
+    
     @IBOutlet var webView: UIWebView!
     @IBOutlet var usernameText: UILabel!
     @IBOutlet var qrImage: UIImageView!
@@ -24,7 +24,7 @@ class BumpAddPartnerController: UIViewController {
         
         
         usernameText.text = currentUser
-
+        
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor();
         self.navigationController!.navigationBar.topItem!.title = "Bump"
         
@@ -53,10 +53,13 @@ class BumpAddPartnerController: UIViewController {
         scanCodeButton.titleLabel?.font = UIFont(name: "Avenir_Medium", size: 20)
         scanCodeButton.backgroundColor = UIColor(red: 0.141, green: 0.620, blue: 0.918, alpha: 1.00)
     }
-
+    
     @IBAction func addPartner(sender: AnyObject) {
-        if usernameText.text != nil{
-            if let user = values[usernameText.text!]{
+        if userNameOfPartner.text != nil{
+            
+            
+            
+            if let otherUser : [String : AnyObject] = (values[userNameOfPartner.text!] as! [String : AnyObject]){
                 
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "dd-MM-yyy"
@@ -77,8 +80,30 @@ class BumpAddPartnerController: UIViewController {
                     }
                 }).resume()
                 
+                
+                
+                let request2 = NSMutableURLRequest(URL: NSURL(string:"http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/dashboard3.php")!)
+                request2.HTTPMethod = "POST"
+                request2.HTTPBody = "username=\(userNameOfPartner.text!)&password=\(otherUser["password"]!)&partner=\(currentUser)&partner_date=\(stringDate)".dataUsingEncoding(NSUTF8StringEncoding)
+                
+                NSURLSession.sharedSession().dataTaskWithRequest(request2, completionHandler: { (data, response, error) in
+                    print("Finished")
+                    if let data = data, responseDetails = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                        // Success
+                        print("Response: \(responseDetails)")
+                    } else {
+                        // Failure
+                        print("Error: \(error)")
+                    }
+                }).resume()
+                
                 webView.loadRequest(NSURLRequest(URL: NSURL(string : "http://phpdatabase19-bump-php-db.0ec9.hackathon.openshiftapps.com/phptojson.php")!))
+                
+                performSegueWithIdentifier("showHome", sender: nil)
+                
             }
+            
+            
         }
     }
     
